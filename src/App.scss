@@ -1,0 +1,398 @@
+
+
+$tablet-max: 1023px;
+$desktop-min: 1440px;
+
+
+ @mixin tablet{
+  @media (max-width: $tablet-max) {
+    @content;
+  }
+} 
+@mixin desktop{
+  @media (max-width: $desktop-min){
+    @content;
+  }
+}
+.App{
+  .header{
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid #ccc;
+    background: rgba(255,255,255,.8);
+   .container{
+        width: 1440px; 
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        .logo{width: 150px}
+        .nav{
+          .listWrap{
+              display: flex;
+              list-style: none;
+              li{
+                  margin: 0 20px;
+                  a{color: #222; text-decoration: none;
+                      transition: .5s;
+                      font-size: 18px;
+                      &:hover{
+                          color:yellowgreen;
+                          font-weight: bold;
+                      }
+                  }
+                }
+            }
+        }
+        .mobileBar{display: none;
+          .hamburerIcon{font-size: 30px;}
+          .nav{display: block; position: absolute; top: 85px; left: 0;
+            width: 100%;
+            ul{
+              flex-direction: column;
+               padding: 0;
+               background: rgba(255,255,255,.8);
+              li{
+                border-bottom: 1px solid #ddd;
+                padding: 10px 0;
+                
+              }
+            }
+          }
+        }
+        .btn{
+            background: none;
+            width:80px;
+            border-radius: 5px;
+            padding: 10px 5px;
+        }
+  }
+    
+  }
+  //메인 슬라이드
+  .mainImg{width: 100%; 
+    img{width: 100%}
+  }
+
+  //mdpick
+  .mdpick{
+    width: 1440px;
+    margin: 0 auto;
+    padding: 100px 0;
+    h2{
+      position: relative;
+      z-index: 1;
+      &:after{
+        content:"";
+        width: 50px;
+        height: 15px;
+        background: #baf3c2;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+      }
+    }
+    .mdList{
+      
+      ul{
+        display: flex;
+       list-style: none;
+       padding: 0;
+        li{
+          position: relative;
+          flex-basis: 33.333%;
+          display: flex;
+          flex-direction: column;
+          &:not(:last-child){margin-right: 20px;}
+          .md-img{
+            img{
+              width: 100%;
+            }
+          }
+          .md-name{
+            font-size: 1.2rem;
+          }
+          .md-price{
+            color: #ccc
+          }
+          .bg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 91%; 
+            background: rgba(0,0,0,.8);
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            box-sizing: border-box;
+            color: rgba(255,255,255,.8);
+            opacity: 0;
+            transition: .5s;
+           &:hover{opacity: 1;}
+          }
+        }
+      }
+    }
+    
+    
+  }
+
+  .banner{
+    width: 100%;
+    height: 200px;
+    background: url(./img/banner.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p{
+      color: #fff;
+      font-size: 45px;
+      text-transform: uppercase;
+      /* text-shadow: -3px -5px 3px #baf3c2; */
+    }
+  }
+  //products
+  .products{
+    width: 1440px;
+    margin: 0 auto;
+    padding: 100px 0;
+    h2{
+      position: relative;
+      z-index: 1;
+      &:after{
+        content:"";
+        width: 50px;
+        height: 15px;
+        background: #baf3c2;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+      }
+    }
+    .p-list{
+      display: flex;
+      .product-link{
+        text-decoration: none;
+        color: #333;
+        &:not(:last-child){
+          margin-right: 20px;
+        }
+        .product-card{
+          .product-img{width: 100%}
+          .product-contents{
+            display: flex;
+            flex-direction: column;
+            .product-name{
+              font-size: 20px;
+            }
+            .product-price{
+              font-size: 14px;
+            }
+            .product-seller{
+              margin-top: 20px;
+              display: flex;
+              justify-content: space-between;
+              .product-avatar{color: #058018; font-size: 18px;}
+              .seller{}
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  //Magazine
+  .magazine{
+    width: 100%;
+    overflow: hidden;
+    padding: 100px 0;
+    .container{
+      width: 1440px; margin: 0 auto;
+     .titleWrap{
+    
+        h2{
+          position: relative;
+          z-index: 1;
+          &:after{
+            content:"";
+            width: 50px;
+            height: 15px;
+            background: #baf3c2;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: -1;
+            }
+        }
+      }
+      .magazineList{
+        position: relative;
+        height: 608px;
+        display: flex;
+            .magazine-box{
+              width: 298px;
+              height: 100%;
+              background: #ddd;
+             /*  box-shadow: 2px 2px 5px #222; */
+              box-sizing: border-box;
+              padding: 20px;
+              font-size:50px;
+              position: relative;
+              span{position: absolute;}
+              .m{ top: 0px; left: 60px; color: #0f7b1d}
+              .a1{ top: 70px; left: 110px}
+              .g{ top: 140px; left: 60px}
+              .a2{ top: 210px; left:120px}
+              .z{ top: 280px; left: 60px}
+              .i{ top: 350px; left: 50px; color: #0f7b1d}
+              .n{ top: 420px; left:80px}
+              .e{ top: 490px; left: 70px}
+            }
+            .swiper-wrap{
+              width:100%;
+              
+              position: absolute;
+              left:320px; 
+              display: flex;
+              .mg-img{
+                height: 100%;
+                img{
+                  width:100%;
+                  height: 608px;
+                }
+              }
+            }
+          
+        }
+        
+            
+        
+      }
+    }
+  
+  //footer
+  .foot-bg{
+      /* position: fixed;
+      left: 0;
+      bottom: 0; */
+    width: 100%;
+    height: 400px;
+    background-image:linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), url(./img/footerbg.jpg) ;
+    .container{
+      width: 1440px;
+      margin: 0 auto;
+      padding: 50px 0;
+      display: flex;
+      .foot-addr{
+        margin-right: 100px;
+        .foot-logo{ margin-bottom: 20px;
+          img{width: 150px;}
+        }
+        address{color: #eee; font-style: normal;}
+        .copy{color: #eee}
+      }
+      .foot-menu{
+        flex-grow: 1;
+        >ul{
+          padding: 0;
+          display: flex;
+          list-style: none;
+          >li{
+            flex-basis: 33.333%;
+            >a{
+              font-size: 18px;
+              color: #fff;
+              font-weight: bold;
+              text-decoration: none;
+              display: block;
+              margin-bottom: 20px;
+            }
+            ul{
+              padding: 0;
+              list-style: none;
+              li{
+                a{
+                  font-size: 14px;
+                  color: #b1b1b1;
+                  text-decoration: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+   
+  @include desktop{
+  
+    .header{
+      width: 100%;
+      height: 100px;
+      border-bottom: 1px solid #ccc;
+      background: rgba(255,255,255,.8);
+      .container{
+            width: 100%;
+            padding: 0 2rem;
+            box-sizing: border-box;
+      }
+      
+    }
+    .mdpick{
+      width: 100%;
+      padding: 80px 20px;
+      box-sizing: border-box;
+    }
+    .banner{
+      p{font-size: 150%; transition: .5s;}
+    }
+    .products{
+      width: 100%;
+      padding: 80px 20px;
+      box-sizing: border-box;
+    }
+    .magazine{}
+    .foot-bg{
+      .container{
+        margin: 0;
+        width: 100%;
+        padding: 50px 20px;
+        box-sizing: border-box;
+      }
+    }
+      
+    
+  }
+  @include tablet{
+    .header{
+      .container{
+        width: 100%;
+        padding: 0 2rem;
+        box-sizing: border-box;
+        h1{order:2}
+        .logo{}
+        .nav{
+          display: none;
+          z-index: 50;
+        }
+        .mobileBar{display: block; order: 1}
+        .btn{
+            background: none;
+            width:80px;
+            border-radius: 5px;
+            padding: 10px 5px;
+            order: 3
+        }
+        
+      }
+    }
+    .products{
+      padding: 30px 20px;
+    }
+  } 
+}
