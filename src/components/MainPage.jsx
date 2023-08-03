@@ -11,10 +11,10 @@ import axios from 'axios';
 const MainPage = () => {
    const [products, setProducts]= useState([]);
     useEffect(() => {
-       let url="https://ccdc80f2-a882-4d8b-9b21-b6348e7d3483.mock.pstmn.io/products";
+       let url="http://localhost:8080/products";
         axios.get(url)
         .then((result) =>{
-            const products=result.data.products;
+            const products=result.data.product;
             setProducts(products)
         }).catch((error)=>{
             console.log(error)

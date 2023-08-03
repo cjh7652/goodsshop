@@ -13,7 +13,7 @@ const ProductPage = () => {
         .then((result) =>{
             setProduct(result.data)
         })
-        .catch((error) =>{
+        .catch((error) =>{  
             console.error(error)
         })
     }, []);
