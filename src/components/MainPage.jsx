@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import Mainslide from './Mainslide';
 import Mdpick from './Mdpick';
 import Magazine from './Magazine';
+import {API_URL} from '../config/constants.jsx';
 
 import axios from 'axios';
 
@@ -11,7 +12,7 @@ import axios from 'axios';
 const MainPage = () => {
    const [products, setProducts]= useState([]);
     useEffect(() => {
-       let url="http://localhost:8080/products";
+       let url=`${API_URL}/products`;
         axios.get(url)
         .then((result) =>{
             const products=result.data.product;
@@ -34,12 +35,12 @@ const MainPage = () => {
            <div className="products">
                <h2>Products</h2>
                <div id="product-list" className="p-list">
-                    {products.map((product, idx) => {
+                    {products.map((product) => {
                         return (
-                           <Link className="product-link" to={`/ProductPage/${idx}`}>
-                                <div className="product-card" key={idx}>
+                           <Link className="product-link" to={`/ProductPage/${product.id}`} key={product.id}>
+                                <div className="product-card" >
                                     <div>
-                                        <img src={product.imageUrl} alt="" className="product-img" />
+                                        <img  src={`${API_URL}/${product.imageUrl}`} alt="" className="product-img" />
                                     </div>
                                     <div className="product-contents">
                                         <span className="product-name">{product.name}</span>

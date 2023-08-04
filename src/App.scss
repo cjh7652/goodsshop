@@ -175,12 +175,14 @@ $desktop-min: 1440px;
     }
     .p-list{
       display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: space-between;
       .product-link{
         text-decoration: none;
         color: #333;
-        &:not(:last-child){
-          margin-right: 20px;
-        }
+        flex-basis: 32%;
+       
         .product-card{
           .product-img{width: 100%}
           .product-contents{
