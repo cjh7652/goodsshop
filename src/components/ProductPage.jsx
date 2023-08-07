@@ -35,7 +35,17 @@ const ProductPage = () => {
             message.error(`에러가 발생했습니다 ${error.message}` )
         })
     }
-
+    const onClickDelete = () => {
+        axios
+          .delete(`${API_URL}/products/${id}`)
+          .then((result) => {
+            message.info("상품을 삭제하였습니다.");
+            navigate(-1); // 삭제 후 이전 페이지로 이동
+          })
+          .catch((error) => {
+            message.error(`에러가 발생했습니다.${error.message}`);
+          });
+      };
 
     console.log(product)
     if(product===null){
@@ -57,6 +67,7 @@ const ProductPage = () => {
                 <div id="createdAt">{dayjs(product.createdAt).format('YYYY년 MM월 DD일')}</div>
                 <Button  type="primary" danger className='payment' size="large" onClick={onClickPurchase} disabled={product.soldout===1? true:false}>즉시결제하기</Button>
                 <div id="description">{product.description}</div>
+                <Button type="primary" danger className="delete" onClick={onClickDelete}>삭제하기</Button>
             </div>
         </div>
     );
