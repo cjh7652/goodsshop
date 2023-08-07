@@ -37,21 +37,24 @@ const MainPage = () => {
                <div id="product-list" className="p-list">
                     {products.map((product) => {
                         return (
-                           <Link className="product-link" to={`/ProductPage/${product.id}`} key={product.id}>
+                          
                                 <div className="product-card" >
-                                    <div>
-                                        <img  src={`${API_URL}/${product.imageUrl}`} alt="" className="product-img" />
-                                    </div>
-                                    <div className="product-contents">
-                                        <span className="product-name">{product.name}</span>
-                                        <span className="product-price">{product.price}</span>
-                                        <div className="product-seller">
-                                            <AiFillAliwangwang  className="product-avatar" />
-                                            <span className="seller">{product.seller}</span>
+                                    {product.soldout===1 ? <div className="product-blur"></div> : null}
+                                     <Link className="product-link" to={`/ProductPage/${product.id}`} key={product.id}>
+                                        <div>
+                                            <img  src={`${API_URL}/${product.imageUrl}`} alt="" className="product-img" />
                                         </div>
-                                    </div>
+                                        <div className="product-contents">
+                                            <span className="product-name">{product.name}</span>
+                                            <span className="product-price">{product.price}</span>
+                                            <div className="product-seller">
+                                                <AiFillAliwangwang  className="product-avatar" />
+                                                <span className="seller">{product.seller}</span>
+                                            </div>
+                                        </div>
+                                    </Link>
                                 </div>
-                           </Link>
+                           
                         )
                     }) } 
                </div>

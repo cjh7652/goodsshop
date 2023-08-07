@@ -178,12 +178,24 @@ $desktop-min: 1440px;
       flex-wrap: wrap;
       width: 100%;
       justify-content: space-between;
-      .product-link{
-        text-decoration: none;
-        color: #333;
+      .product-card{
         flex-basis: 32%;
+        position: relative;
+        .product-blur{
+          position: absolute;
+          top: 0;
+          left:0;
+          right:0;
+          bottom: 0;
+          background-color: #ffffffaa;
+          pointer-events: none;
+        }
+        .product-link{
+          text-decoration: none;
+          color: #333;
+          
        
-        .product-card{
+      
           .product-img{width: 100%}
           .product-contents{
             display: flex;
